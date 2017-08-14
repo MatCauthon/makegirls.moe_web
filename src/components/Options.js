@@ -15,7 +15,7 @@ class Options extends Component {
     constructor(props) {
         super();
         this.options = Utils.arrayToObject(props.options, item => item.key);
-        this.props = {noise: '', copied: false};
+        // this.props = {noise: '', copied: false};
         // this.props.copied = false
         // this.props.on
     }
@@ -104,13 +104,17 @@ class Options extends Component {
                 <div className="row">
                     {this.renderNoiseSelector('noise')}
                     {this.props.noise && this.renderNoiseVisualizer()}
-                    <CopyToClipboard text={this.props.noise} onCopy={() => {
-                      this.setState({copied: true});
-                    }}>
-                      <ButtonPrimary
-                        text={'Copy Noise to Clipboard'}
-                        onClick={this.props.onGenerateClick} />
-                    </CopyToClipboard>
+
+                    {this.props.input &&
+                      <CopyToClipboard text={this.props.input} onCopy={() => {
+                        this.setState({copied: true});
+                      }}>
+                        <ButtonPrimary
+                          text={'Copy Noise to Clipboard'}
+
+                          onClick={this.props.onGenerateClick} />
+                      </CopyToClipboard>
+                    }
                     {this.props.copied ? <span style={{color: 'red'}}>Copied.</span> : null}
                 </div>
             </div>

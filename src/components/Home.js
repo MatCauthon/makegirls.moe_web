@@ -128,7 +128,7 @@ class Home extends Component {
 
         Stat.generate(this.state.options);
         this.setState({
-            gan: Object.assign({}, this.state.gan, {isRunning: false, noise: this.gan.getCurrentNoise()})
+            gan: Object.assign({}, this.state.gan, {isRunning: false, noise: this.gan.getCurrentNoise(), input: this.gan.getCurrentInput()})
         });
     }
 
@@ -171,6 +171,7 @@ class Home extends Component {
                                     options={Config.options}
                                     values={this.state.options}
                                     noise={this.state.gan.noise}
+                                    input={this.state.gan.input}
                                     onChange={(key, value) => this.setState({options: Object.assign({}, this.state.options, {[key]: value})})} />
                             } />
                             <Route path="/about" component={About}/>
