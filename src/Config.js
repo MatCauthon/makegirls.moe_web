@@ -1,4 +1,4 @@
-var debug = false;
+var debug = true;
 
 var Config = {
     colors: {
@@ -75,10 +75,10 @@ var Config = {
         imageWidth: 128,
         imageHeight: 128,
         model: '/models/model_resnet_with_condition_128_full_1',
-        modelServers: debug ? ['localhost:3000'] : ['make.girls.moe', '139.162.88.6']
+        modelServers: debug ? ['192.168.1.176:3000'] : ['make.girls.moe', '139.162.88.6']
     },
     stat: {
-        enabled: true,
+        enabled: debug ? false : true,
         urlPrefix: (debug ? 'http://localhost:6253' : '') + '/api/stat'
     },
     twitter: {
